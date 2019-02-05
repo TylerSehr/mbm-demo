@@ -16,7 +16,10 @@ class DUCKS {
 
     get = (name)=>{
         if (this.state[`${name}`] && this.state[`${name}`] !== '') {
-            return this.state[`${name}`]
+            return this.state[`${name}`] 
+        }
+        else{
+            return '';
         }
     }
 

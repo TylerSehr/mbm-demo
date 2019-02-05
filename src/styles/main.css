@@ -60,11 +60,9 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-}
 
 li a {
+    float: left;
     display: block;
     color: white;
     text-align: center;

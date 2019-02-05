@@ -18,7 +18,6 @@ activeJobs.push(testJob1, testJob2, testJob3)
 router.get('/get-all', (req, res) => {
     let jobPreviews = []
     activeJobs.forEach(job=> jobPreviews.push(job.PreviewOfJob))
-    console.log(jobPreviews);
     
     res.send(jobPreviews)
 });
