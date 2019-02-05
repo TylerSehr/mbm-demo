@@ -23,6 +23,7 @@ class Job{
         //maybe i should just do this on ethereum 
     }
 
+    // name is a placeholder for some sort of payment id
     static createJob(projectName, owner, description, rewardPerRound, starterFile, name, paymentAmount, tags){
         const projectParams = new Params(description, rewardPerRound, starterFile, name, paymentAmount, tags);
         const newJob = new Job(projectParams, projectName, owner);

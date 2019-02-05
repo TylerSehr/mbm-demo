@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom'
 import duck from '../DUCKS'
 
 
@@ -11,11 +11,15 @@ class JobList extends Component {
     }
 
     render() {
+
+        let jobList = duck.get('jobList') || [];
         let content;
 
-        content = duck.get('jobList').map((job, index) => {
+        content = jobList.map((job, index) => {
             return (
-                <li key={index}>{job.projectName}</li>
+                <li key={index}>
+                    <Link to={`/project/${job.projectName}`}>{job.projectName}</Link>
+                </li>
             )
         })
 

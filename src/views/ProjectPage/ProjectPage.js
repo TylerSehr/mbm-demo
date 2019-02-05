@@ -1,43 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
+import JobList from '../../components/joblist'
 
 import Nav from '../../components/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import duck from '../../DUCKS'
-import JobList from '../../components/joblist';
+
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class JobPage extends Component {
+class ProjectPage extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
-  componentWillMount() {
-    this.getJobs()
-  }
-
-  getJobs() {
-    axios.get('/api/jobs/get-all')
-      .then((response) => {
-        duck.post('jobList', response.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+  componentWillMount(){
   }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
-    }
-    else {
-      this.getJobs()
     }
   }
 
@@ -48,9 +35,9 @@ class JobPage extends Component {
       content = (
         <div>
           <h2>
-            Jobs Page
+            Project Page
           </h2>
-          <JobList />
+         
         </div>
       );
     }
@@ -65,4 +52,4 @@ class JobPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(JobPage);
+export default connect(mapStateToProps)(ProjectPage);

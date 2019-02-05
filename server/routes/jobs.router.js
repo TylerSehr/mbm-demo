@@ -24,6 +24,8 @@ router.get('/get-all', (req, res) => {
 
 router.post('/new-job', (req, res)=>{
     // take data and create new job and add it to the active jobs array
+    console.log(req.body);
+    
     res.send(200)
 })
 

@@ -11,6 +11,8 @@ import LoginPage from './views/LoginPage/LoginPage';
 import RegisterPage from './views/RegisterPage/RegisterPage';
 import UserPage from './views/UserPage/UserPage';
 import JobsPage from './views/JobsPage/JobsPage';
+import ProjectPage from './views/ProjectPage/ProjectPage';
+import NewProjectPage from './views/NewProjectPage/NewProjectPage'
 
 import './styles/main.css';
 
@@ -35,6 +37,14 @@ const App = () => (
         <Route
           path="/jobs"
           component={JobsPage}
+        />
+        <Route
+          path="/project/:projectId"
+          component={ProjectPage}
+        />
+        <Route
+          path="/new-project"
+          component={NewProjectPage}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
