@@ -20,6 +20,11 @@ const Nav = () => (
             New Project
           </Link>
         </li>
+        <li>
+          <Link to="/p2p">
+            p2p test
+          </Link>
+        </li>
       </ul>
     </div>
   </div>

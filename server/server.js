@@ -13,6 +13,10 @@ const userRouter = require('./routes/user.router');
 
 const jobsRouter = require('./routes/jobs.router')
 
+//const wsRouter = require('./routes/ws.router')
+
+const p2pRouter = require('./routes/p2p.router')
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,9 +28,13 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/jobs', jobsRouter)
+app.use('/api/p2p', p2pRouter)
+//app.use('/api/ws', wsRouter)
 
 // Serve static files
 app.use(express.static('build'));

@@ -13,8 +13,12 @@ import UserPage from './views/UserPage/UserPage';
 import JobsPage from './views/JobsPage/JobsPage';
 import ProjectPage from './views/ProjectPage/ProjectPage';
 import NewProjectPage from './views/NewProjectPage/NewProjectPage'
+import p2pTest from './views/p2p-practice(defunct)/p2p-test'
+
 
 import './styles/main.css';
+
+
 
 const App = () => (
   <div>
@@ -45,6 +49,10 @@ const App = () => (
         <Route
           path="/new-project"
           component={NewProjectPage}
+        />
+        <Route
+          path="/p2p"
+          component={p2pTest}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
