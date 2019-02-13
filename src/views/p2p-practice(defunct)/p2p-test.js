@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 
 let p2p = new P2P;
 
-
+duck.post('message', '')
 
 class p2pTest extends Component {
 
@@ -54,6 +54,7 @@ class p2pTest extends Component {
                 <div>
                     <h2>
                         p2p Test
+                        {duck.get('message')}
                     </h2>
                     <button onClick={this.handleClick}/>
                 </div>

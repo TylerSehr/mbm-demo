@@ -1,3 +1,4 @@
+import duck from '../../DUCKS';
 
 const Peer = require('peerjs')
 const axios = require('axios')
@@ -59,6 +60,7 @@ class P2P {
 
             conn.on('data', (data) => {
                 console.log('received', data);
+                duck.post('message', data)
             })
 
             conn.send('hi there')
