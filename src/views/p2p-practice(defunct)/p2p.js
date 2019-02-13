@@ -1,11 +1,14 @@
 import duck from '../../DUCKS';
+import React, { Component} from 'react'
+import { connect } from 'react-redux'
 
 const Peer = require('peerjs')
 const axios = require('axios')
 
 
-class P2P {
+class P2P{
     constructor() { // job name may go here later
+ 
 
         this.localPeer = null;
 
@@ -19,7 +22,7 @@ class P2P {
     }
 
     createPeer(userName) {
-        this.localPeer = new Peer(userName, { host: 'mbm-testing.herokuapp.com', port: 9000, path: '/peerjs' });
+        this.localPeer = new Peer(userName, { host: 'localhost', port: 9000, path: '/peerjs' });
         this.localPeer.on('open', function (id) {
             console.log('My peer ID is: ' + id);
         });

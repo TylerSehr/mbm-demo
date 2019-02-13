@@ -5,11 +5,12 @@ import axios from 'axios'
 import Nav from '../../components/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import duck from '../../DUCKS'
+//import duck from '../../DUCKS'
 import JobList from '../../components/joblist';
 
 const mapStateToProps = state => ({
   user: state.user,
+  duck: state.duck
 });
 
 class JobPage extends Component {
@@ -25,7 +26,8 @@ class JobPage extends Component {
   getJobs() {
     axios.get('/api/jobs/get-all')
       .then((response) => {
-        duck.post('jobList', response.data)
+        //duck.post('jobList', response.data)
+        this.props.dispatch({ type: 'post', name: 'jobList', data: response.data})
       })
       .catch((error) => {
         console.log(error);

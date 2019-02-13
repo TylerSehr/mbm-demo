@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import duck from '../DUCKS'
+//import duck from '../DUCKS'
 
+const mapStateToProps = state => ({
+    duck: state.duck
+});
 
 class JobList extends Component {
 
@@ -12,7 +16,7 @@ class JobList extends Component {
 
     render() {
 
-        let jobList = duck.get('jobList') || [];
+        let jobList = this.props.duck.jobList || [];
         let content;
 
         content = jobList.map((job, index) => {
@@ -35,4 +39,4 @@ class JobList extends Component {
     }
 }
 
-export default JobList;
+export default connect(mapStateToProps)(JobList);
