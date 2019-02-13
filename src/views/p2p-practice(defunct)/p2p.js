@@ -18,7 +18,7 @@ class P2P {
     }
 
     createPeer(userName) {
-        this.localPeer = new Peer(userName, { host: 'localhost', port: 9000, path: '/peerjs' });
+        this.localPeer = new Peer(userName, { host: 'https://mbm-testing.herokuapp.com', port: 9000, path: '/peerjs' });
         this.localPeer.on('open', function (id) {
             console.log('My peer ID is: ' + id);
         });
