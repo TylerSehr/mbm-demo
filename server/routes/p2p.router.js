@@ -29,6 +29,7 @@ server.on('disconnect', (id)=>{
  */
 router.get('/peers', (req, res) => {
     // verify identity before sending peers
+    // make sure no duplicates
     res.send(peers)
 });
 
