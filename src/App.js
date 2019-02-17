@@ -43,7 +43,6 @@ class App extends React.Component {
   awaitUser = () => {
     if (p2p.localPeer === null) {
       if (this.props.user.userName !== null) {
-        console.log('we here');
 
         p2p.initialize(this.props.user.userName)
         return

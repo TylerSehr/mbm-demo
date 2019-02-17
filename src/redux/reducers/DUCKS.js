@@ -11,14 +11,14 @@ class DUCKS {
         this.namesList.push(name)
     }
 
-    // get = (name) => {
-    //     if (this.state[`${name}`] && this.state[`${name}`] !== '') {
-    //         return this.state[`${name}`]
-    //     }
-    //     else {
-    //         return '';
-    //     }
-    // }
+    get = (name) => {
+        if (this.state[`${name}`] && this.state[`${name}`] !== '') {
+            return this.state[`${name}`]
+        }
+        else {
+            return '';
+        }
+    }
 
     update = (name, data) => {
         if (this.state[`${name}`]) {
@@ -44,5 +44,7 @@ class DUCKS {
     }
 }
 
+let newDuck = new DUCKS()
 
-export default DUCKS
+
+export default newDuck

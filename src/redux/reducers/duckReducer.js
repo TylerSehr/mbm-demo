@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux';
-import DUCKS from './DUCKS'
-let newDuck = new DUCKS()
+
+import newDuck from './DUCKS'
 
 const duck = (state = newDuck.state, action) => {
     switch (action.type) {

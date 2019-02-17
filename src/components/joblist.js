@@ -2,21 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 //import duck from '../DUCKS'
+import { waitFor } from '../util'
 
 const mapStateToProps = state => ({
-    duck: state.duck
+    jobList: state.duck.jobList
 });
 
 class JobList extends Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            jobList: []
+        }
+    }
 
 
-    componentDidMount() {
-
+    componentWillUpdate(nextProps) {   
+        if (nextProps.jobList !== this.props.jobList && nextProps.jobList !== '') {
+            this.setState({
+                jobList: nextProps.jobList
+            })
+        }
     }
 
     render() {
 
-        let jobList = this.props.duck.jobList || [];
+        let jobList = this.state.jobList;
         let content;
 
         content = jobList.map((job, index) => {

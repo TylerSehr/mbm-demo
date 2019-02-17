@@ -1,6 +1,7 @@
 //import duck from '../../DUCKS';
 import React, { Component } from 'react'
 import { store } from './index'
+import Message from './MessageHandler'
 
 
 const Peer = require('peerjs')
@@ -81,18 +82,18 @@ class P2P {
     }
 
     messageHandler(conn) {
-        // console.log(conn);
-
+        
         conn.on('open', () => {
 
-
             conn.on('data', (data) => {
-                console.log('received', data);
-                //duck.post('message', data)
-                store.dispatch({ type: 'post', name: 'message', data: data })
+
+                console.log('all data logs', data);
+
+                Message.readMessage(data)
+
             })
 
-            conn.send('hi there')
+            conn.send(Message.createChat('hi there'))
         })
     }
 
@@ -101,6 +102,7 @@ class P2P {
             conn.send(message)
         })
     }
+
 
 
 
